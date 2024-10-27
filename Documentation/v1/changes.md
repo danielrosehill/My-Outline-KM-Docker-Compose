@@ -40,3 +40,24 @@ sudo touch /srv/docker/outline/redis.conf
 ```
 
 Then, make sure that Docker has adequate permissions to read/write to those directories on the host machine.
+
+---
+
+## `Docker.Env` Handling
+
+The installation method that Outline recommends suggests creating `docker.env` to hold environment variables. 
+
+Set:
+
+`FILE_STORAGE_LOCAL_ROOT_DIR=/var/lib/outline/storage-data`
+
+to match.
+
+## Postgres SSL Disabled
+
+My environment required this change so it's made in the config:
+
+```
+    environment:
+      PGSSLMODE: disable
+```
